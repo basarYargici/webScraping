@@ -9,10 +9,11 @@ url = "https://www.investing.com/crypto/bitcoin/btc-usd"  # source link of data
 
 # minimum and maximum count that we want pc to play beep sound if the currentValue is between them
 minCount = "44,450.0"
-maxCount = "46,000.0"
+maxCount = "47,000.0"
 
 # we use try-except in case of any errors
 try:
+    print(f"program will play beep voice if currentValue is between {minCount} and {maxCount}")
     # program will never stop until we kill it
     while True:
         page = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})  # connects to url
@@ -49,14 +50,14 @@ try:
             file.write(txtStr)
 
         # if currentValue is between given minCount and maxCount, system will play the beep voice
-        print("wait start")
+        print("wait process starts")
         if minCount < currentValue < maxCount:
             print("play music")
             winsound.Beep(500, 3000)
 
         print(txtStr)
         time.sleep(5)  # delay 5 seconds of execution of program
-        print("wait done")
+        print("wait process done")
 
 except:
     traceback.print_exc()
