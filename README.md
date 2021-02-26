@@ -19,4 +19,4 @@ Package Prerequisities:
 
 
 ## Output Example
-<img src="output_1.png" height = "230">
+<img src="output_1.png" height = "256">
