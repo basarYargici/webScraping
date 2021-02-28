@@ -1,6 +1,8 @@
 import time  # to delaying the process
 import traceback  # if any error occurs, we will get it with traceback
 import winsound  # to get and play the system sounds
+from datetime import datetime
+
 import requests  # to connect the website and getting the HTML
 
 from bs4 import BeautifulSoup  # to parse the webpage and search the specific elements
@@ -8,7 +10,7 @@ from bs4 import BeautifulSoup  # to parse the webpage and search the specific el
 url = "https://www.investing.com/crypto/bitcoin/btc-usd"  # source link of data
 
 # minimum and maximum count that we want pc to play beep sound if the currentValue is between them
-minCount = "44,450.0"
+minCount = "44,000.0"
 maxCount = "47,000.0"
 
 # we use try-except in case of any errors
@@ -46,8 +48,9 @@ try:
                  f"BTC current percentage change \t= {currentPctChange} "
 
         # save the scraped text
-        with open('scraped_text.txt', 'w') as file:
-            file.write(txtStr)
+        with open('scraped_text.txt', 'a') as file:
+            currentTime = datetime.now().strftime("%H:%M:%S")
+            file.write('\n\nCurrent Time:' + str(currentTime) + "\n" + txtStr)
 
         # if currentValue is between given minCount and maxCount, system will play the beep voice
         print("wait process starts")

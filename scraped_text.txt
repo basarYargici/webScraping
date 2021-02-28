@@ -1,3 +1,0 @@
-BTC current value 				= 46,137.0 
-BTC current change 				= -3571.0   
-BTC current percentage change 	= -7.18% 
